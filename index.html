@@ -1,4 +1,3 @@
-
 <!-- This is the website that I will use when Studying for my KN final 
 Please do not use with the permision of the creator. -->
 
@@ -77,5 +76,52 @@ content that you are going to be posting online -->
     </div>
 
 </body>
+<!-- Here is where the typescript is going to be, that makes the screens visible-->
+<script>
+    // This will make sure that the home screen is always being shown 
+    document.querySelector("#home").style.display= "block";
 
+    let navAnchors= document.querySelectorAll("div#navbarNavAltMarkup a")
+
+    navAnchors.forEach( (anchor) => {
+      anchor.addEventListener("click", (event) => {
+
+        //hides all the screens first
+        document.querySelectorAll(".screen").forEach( (screen) => {
+          screen.style.display = "none";
+        });
+        //read data screen attribute  
+        let screen = event.target.getAttribute("data-screen");
+
+        //find relevant screen
+        let targetScreen= document.querySelector("#" + screen);
+
+        //show it 
+        targetScreen.style.display= "block";
+      })
+    })
+
+
+
+    // the top button
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+  </script>
 </html>
